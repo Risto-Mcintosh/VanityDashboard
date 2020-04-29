@@ -1,0 +1,2 @@
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Servies\obj\Debug\VanityDashboard.Servies.csprojAssemblyReference.cache
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Servies\obj\Debug\VanityDashboard.Servies.csproj.CoreCompileInputs.cache
