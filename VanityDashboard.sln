@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VanityDashboard.Web", "Vani
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanityDashboard.Data", "VanityDashboard.Data\VanityDashboard.Data.csproj", "{D204AC0B-026B-45EA-BE38-8AD412FFB5D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanityDashboard.Servies", "VanityDashboard.Servies\VanityDashboard.Servies.csproj", "{96F37327-5919-49B0-BEC0-436929010DEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VanityDashboard.Services", "VanityDashboard.Services\VanityDashboard.Services.csproj", "{8B02F8A5-90C3-4560-AF74-5338D4CE0F3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{D204AC0B-026B-45EA-BE38-8AD412FFB5D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D204AC0B-026B-45EA-BE38-8AD412FFB5D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D204AC0B-026B-45EA-BE38-8AD412FFB5D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{96F37327-5919-49B0-BEC0-436929010DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96F37327-5919-49B0-BEC0-436929010DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96F37327-5919-49B0-BEC0-436929010DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96F37327-5919-49B0-BEC0-436929010DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B02F8A5-90C3-4560-AF74-5338D4CE0F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B02F8A5-90C3-4560-AF74-5338D4CE0F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B02F8A5-90C3-4560-AF74-5338D4CE0F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B02F8A5-90C3-4560-AF74-5338D4CE0F3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

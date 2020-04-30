@@ -2,7 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>6a1d44be-8d37-413a-8859-443458c23561</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VanityDashboard.Data\VanityDashboard.Data.csproj" />
+  </ItemGroup>
 
 
 </Project>

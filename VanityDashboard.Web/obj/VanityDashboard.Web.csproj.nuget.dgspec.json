@@ -4,6 +4,17 @@
     "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Web\\VanityDashboard.Web.csproj": {}
   },
   "projects": {
+    "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
+        "projectName": "VanityDashboard.Data",
+        "projectPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Web\\VanityDashboard.Web.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -26,7 +37,11 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
+                "projectPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

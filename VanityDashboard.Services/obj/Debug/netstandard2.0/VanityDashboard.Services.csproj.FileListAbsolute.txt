@@ -1,0 +1,8 @@
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Services.deps.json
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Services.dll
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Data.dll
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Data.pdb
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.csprojAssemblyReference.cache
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.AssemblyInfoInputs.cache
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.AssemblyInfo.cs
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.csproj.CopyComplete
