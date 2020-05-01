@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using VanityDashboard.Data;
 
 namespace VanityDashboard.Servies
@@ -13,17 +14,21 @@ namespace VanityDashboard.Servies
         }
         public Customer CreateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            db.Customers.Add(customer);
+            db.SaveChanges();
+            return customer;
         }
 
         public Customer GetCustomer(int id)
         {
-            throw new NotImplementedException();
+            return db.Customers.Find(id);
         }
 
-        public Customer UpdateCustomer(int id)
+        public Customer UpdateCustomer(Customer updatedCustomer)
         {
-            throw new NotImplementedException();
+            var entity = db.Customers.Attach(updatedCustomer);
+            entity.State = EntityState.Modified;
+            return updatedCustomer;
         }
     }
 }

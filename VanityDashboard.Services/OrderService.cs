@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using VanityDashboard.Data;
 
@@ -12,29 +12,39 @@ namespace VanityDashboard.Servies
         {
             this.db = db;
         }
-        public Order CreateOrder()
+
+        public Order CreateOrder(Order order)
         {
-           throw new NotImplementedException();
+            db.Add(order);
+            db.SaveChanges();
+            return order;
         }
 
-        public void DeleteOrder()
+        public void DeleteOrder(int id)
         {
-            throw new NotImplementedException();
+            var order = db.Orders.Find(id);
+            if (order != null)
+            {
+                db.Orders.Remove(order);
+                db.SaveChanges();
+            }
         }
 
-        public Order GetOrder()
+        public Order GetOrder(int id)
         {
-            throw new NotImplementedException();
+            return db.Orders.Find(id);
         }
 
         public IEnumerable<Order> GetOrders()
         {
-            throw new NotImplementedException();
+            return db.Orders;
         }
 
-        public Order UpdateOrder()
+        public Order UpdateOrder(Order order)
         {
-            throw new NotImplementedException();
+            var entity = db.Orders.Attach(order);
+            entity.State = EntityState.Modified;
+            return order;
         }
     }
 }

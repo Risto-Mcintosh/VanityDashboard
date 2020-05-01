@@ -9,9 +9,9 @@ namespace VanityDashboard.Servies
     interface IOrderService
     {
         IEnumerable<Order> GetOrders();
-        Order GetOrder();
-        Order CreateOrder();
-        void DeleteOrder();
-        Order UpdateOrder();
+        Order GetOrder(int id);
+        Order CreateOrder(Order order);
+        void DeleteOrder(int id);
+        Order UpdateOrder(Order order);
     }
 }

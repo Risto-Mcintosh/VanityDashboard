@@ -1,29 +1,36 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using VanityDashboard.Data;
 
 namespace VanityDashboard.Servies
 {
     class MirrorService : IMirrorService
     {
-        public Mirror CreateMirror(Mirror mirror)
+        private readonly AppDbContext db;
+
+        public MirrorService(AppDbContext db)
         {
-            throw new NotImplementedException();
+            this.db = db;
         }
+        
 
         public Mirror GetMirror(Sizes size)
         {
-            throw new NotImplementedException();
+            return db.Mirrors.FirstOrDefault(m => m.Size == size);
         }
 
         public IEnumerable<Mirror> GetMirrors()
         {
-            throw new NotImplementedException();
+            return db.Mirrors;
         }
 
         public Mirror UpdateMirror(Mirror mirror)
         {
-            throw new NotImplementedException();
+            var entity = db.Mirrors.Attach(mirror);
+            entity.State = EntityState.Modified;
+            return mirror;
         }
     }
 }

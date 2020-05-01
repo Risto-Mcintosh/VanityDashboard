@@ -6,3 +6,8 @@ C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.AssemblyInfoInputs.cache
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.AssemblyInfo.cs
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.csproj.CopyComplete
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Services.pdb
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\bin\Debug\netstandard2.0\VanityDashboard.Data.dll.config
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.csproj.CoreCompileInputs.cache
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.dll
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netstandard2.0\VanityDashboard.Services.pdb

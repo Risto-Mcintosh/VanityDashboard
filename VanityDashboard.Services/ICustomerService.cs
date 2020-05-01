@@ -10,6 +10,6 @@ namespace VanityDashboard.Servies
     {
         Customer GetCustomer(int id);
         Customer CreateCustomer(Customer customer);
-        Customer UpdateCustomer(int id);
+        Customer UpdateCustomer(Customer updatedCustomer);
     }
 }

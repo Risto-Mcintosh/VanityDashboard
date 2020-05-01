@@ -1,6 +1,0 @@
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\VanityDashboard.Data.dll
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\VanityDashboard.Data.pdb
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\VanityDashboard.Data.csprojAssemblyReference.cache
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\VanityDashboard.Data.csproj.CoreCompileInputs.cache
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\VanityDashboard.Data.dll
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\VanityDashboard.Data.pdb

@@ -1,29 +1,36 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using VanityDashboard.Data;
 
 namespace VanityDashboard.Servies
 {
     public class TableService : ITableService
     {
-        public Table CreateTable(Table table)
+        private readonly AppDbContext db;
+
+        public TableService(AppDbContext db)
         {
-            throw new NotImplementedException();
+            this.db = db;
         }
+ 
 
         public Table GetTable(Sizes size)
         {
-            throw new NotImplementedException();
+            return db.Tables.FirstOrDefault(t => t.Size == size);
         }
 
         public IEnumerable<Table> GetTables()
         {
-            throw new NotImplementedException();
+            return db.Tables;
         }
 
         public Table UpdateTable(Table table)
         {
-            throw new NotImplementedException();
+            var entity = db.Tables.Attach(table);
+            entity.State = EntityState.Modified;
+            return table;
         }
     }
 }
