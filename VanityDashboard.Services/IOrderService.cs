@@ -6,7 +6,7 @@ using VanityDashboard.Data;
 
 namespace VanityDashboard.Servies
 {
-    interface IOrderService
+    public interface IOrderService
     {
         IEnumerable<Order> GetOrders();
         Order GetOrder(int id);

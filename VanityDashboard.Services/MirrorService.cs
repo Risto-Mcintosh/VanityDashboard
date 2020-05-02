@@ -6,7 +6,7 @@ using VanityDashboard.Data;
 
 namespace VanityDashboard.Servies
 {
-    class MirrorService : IMirrorService
+    public class MirrorService : IMirrorService
     {
         private readonly AppDbContext db;
 

@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using VanityDashboard.Data;
+using VanityDashboard.Servies;
 
 namespace VanityDashboard.Web
 {
@@ -30,13 +31,16 @@ namespace VanityDashboard.Web
         {
             services.AddControllers();
 
-            
-
             services.AddDbContext<AppDbContext>(option =>
             {
                 option.EnableDetailedErrors();
                 option.UseNpgsql(Configuration["DbPassword"]);
             });
+
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IMirrorService, MirrorService>();
+            services.AddScoped<ITableService, TableService>();
+            services.AddScoped<ICustomerService, CustomerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
