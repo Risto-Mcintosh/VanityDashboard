@@ -11,6 +11,6 @@ namespace VanityDashboard.Servies
         Table GetTable(Sizes size);
         Table UpdateTable(Table table);
         IEnumerable<Table> GetTables();
-    
+        public int CommitChanges();
     }
 }

@@ -1,6 +1,5 @@
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\netcoreapp3.1\VanityDashboard.Data.deps.json
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\netcoreapp3.1\VanityDashboard.Data.dll
-C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.csprojAssemblyReference.cache
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.AssemblyInfoInputs.cache
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.AssemblyInfo.cs
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\netcoreapp3.1\VanityDashboard.Data.runtimeconfig.json
@@ -10,3 +9,4 @@ C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\bin\Debug\net
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.csproj.CoreCompileInputs.cache
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.dll
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.pdb
+C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Data\obj\Debug\netcoreapp3.1\VanityDashboard.Data.csprojAssemblyReference.cache

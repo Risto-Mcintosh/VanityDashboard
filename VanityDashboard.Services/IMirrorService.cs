@@ -11,5 +11,6 @@ namespace VanityDashboard.Servies
         Mirror GetMirror(Sizes size);
         Mirror UpdateMirror(Mirror mirror);
         IEnumerable<Mirror> GetMirrors();
+        public int CommitChanges();
     }
 }

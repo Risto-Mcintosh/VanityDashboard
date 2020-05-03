@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VanityDashboard.Data;
@@ -9,12 +10,15 @@ using VanityDashboard.Data;
 namespace VanityDashboard.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200502031523_updatea")]
+    partial class updatea
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:Enum:sizes", "small,medium,large")
+                .HasAnnotation("Npgsql:Enum:vanity_color", "white,black,pink")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
@@ -70,10 +74,6 @@ namespace VanityDashboard.Data.Migrations
                         .HasColumnType("integer")
                         .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("varchar");
-
                     b.Property<DateTime>("CompletedOn")
                         .HasColumnType("timestamp without time zone");
 
@@ -83,12 +83,8 @@ namespace VanityDashboard.Data.Migrations
                     b.Property<DateTime>("DueOn")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("MirrorId")
+                    b.Property<int>("OrderStatus")
                         .HasColumnType("integer");
-
-                    b.Property<string>("OrderStatus")
-                        .IsRequired()
-                        .HasColumnType("varchar");
 
                     b.Property<DateTime>("OrderedOn")
                         .HasColumnType("timestamp without time zone");
@@ -96,19 +92,17 @@ namespace VanityDashboard.Data.Migrations
                     b.Property<DateTime>("PaidOn")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("TableId")
-                        .HasColumnType("integer");
+                    b.Property<double>("Total")
+                        .HasColumnType("double precision");
 
-                    b.Property<decimal>("Total")
-                        .HasColumnType("numeric");
+                    b.Property<int?>("VanityId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("MirrorId");
-
-                    b.HasIndex("TableId");
+                    b.HasIndex("VanityId");
 
                     b.ToTable("Orders");
                 });
@@ -132,19 +126,56 @@ namespace VanityDashboard.Data.Migrations
                     b.ToTable("Tables");
                 });
 
+            modelBuilder.Entity("VanityDashboard.Data.Vanity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("varchar");
+
+                    b.Property<int>("MirrorId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TableId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MirrorId");
+
+                    b.HasIndex("TableId");
+
+                    b.ToTable("Vanity");
+                });
+
             modelBuilder.Entity("VanityDashboard.Data.Order", b =>
                 {
                     b.HasOne("VanityDashboard.Data.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
+                    b.HasOne("VanityDashboard.Data.Vanity", "Vanity")
+                        .WithMany()
+                        .HasForeignKey("VanityId");
+                });
+
+            modelBuilder.Entity("VanityDashboard.Data.Vanity", b =>
+                {
                     b.HasOne("VanityDashboard.Data.Mirror", "Mirror")
                         .WithMany()
-                        .HasForeignKey("MirrorId");
+                        .HasForeignKey("MirrorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("VanityDashboard.Data.Table", "Table")
                         .WithMany()
-                        .HasForeignKey("TableId");
+                        .HasForeignKey("TableId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace VanityDashboard.Data.Migrations
 {
-    public partial class initialcreate : Migration
+    public partial class initialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,7 @@ namespace VanityDashboard.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Size = table.Column<int>(nullable: false),
+                    Size = table.Column<string>(type: "varchar", nullable: false),
                     Price = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -43,7 +43,7 @@ namespace VanityDashboard.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Size = table.Column<int>(nullable: false),
+                    Size = table.Column<string>(type: "varchar", nullable: false),
                     Price = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -57,7 +57,7 @@ namespace VanityDashboard.Data.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Color = table.Column<int>(nullable: false),
+                    Color = table.Column<string>(type: "varchar", nullable: false),
                     MirrorId = table.Column<int>(nullable: false),
                     TableId = table.Column<int>(nullable: false)
                 },

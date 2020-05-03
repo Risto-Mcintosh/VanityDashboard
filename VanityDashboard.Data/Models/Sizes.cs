@@ -1,4 +1,6 @@
-﻿namespace VanityDashboard.Data
+﻿using System.Runtime.Serialization;
+
+namespace VanityDashboard.Data
 {
     public enum Sizes
     {

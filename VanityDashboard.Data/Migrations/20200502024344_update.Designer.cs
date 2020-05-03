@@ -10,13 +10,15 @@ using VanityDashboard.Data;
 namespace VanityDashboard.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20200501204932_edittables")]
-    partial class edittables
+    [Migration("20200502024344_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:Enum:sizes", "small,medium,large")
+                .HasAnnotation("Npgsql:Enum:vanity_color", "white,black,pink")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);

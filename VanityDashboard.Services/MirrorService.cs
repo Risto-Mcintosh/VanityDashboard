@@ -32,5 +32,10 @@ namespace VanityDashboard.Servies
             entity.State = EntityState.Modified;
             return mirror;
         }
+
+        public int CommitChanges()
+        {
+            return db.SaveChanges();
+        }
     }
 }

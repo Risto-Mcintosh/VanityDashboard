@@ -1,24 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace VanityDashboard.Data
 {
-    public class Order
+    public class OrderDto
     {
-
         public int Id { get; set; }
         public Customer Customer { get; set; }
-        [Column(TypeName = "varchar")]
-        public VanityColor Color { get; set; }
-        public Mirror Mirror { get; set; }
-        public Table Table { get; set; }
-        [Column(TypeName = "varchar")]
-        public OrderStatus OrderStatus { get; set; }
+        public string VanityColor { get; set; }
+        public string MirrorSize { get; set; }
+        public string TableSize { get; set; }
         public decimal Total { get; set; }
+        public string OrderStatus { get; set; }
         public DateTime OrderedOn { get; set; }
         public DateTime PaidOn { get; set; }
         public DateTime DueOn { get; set; }
