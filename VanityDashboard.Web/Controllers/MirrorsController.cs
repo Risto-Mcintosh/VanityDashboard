@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VanityDashboard.Data;
-using VanityDashboard.Servies;
+using VanityDashboard.Data.Dto;
+using VanityDashboard.Services;
 using VanityDashboard.Web.Models;
 
 namespace VanityDashboard.Web.Controllers
@@ -16,13 +17,12 @@ namespace VanityDashboard.Web.Controllers
     [ApiController]
     public class MirrorsController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        
         private readonly IMapper _mapper;
-        private readonly IMirrorService _mirrorService;
+        private readonly IVanityComponentService<Mirror> _mirrorService;
 
-        public MirrorsController(AppDbContext context, IMapper mapper, IMirrorService mirrorService)
+        public MirrorsController(IMapper mapper, IVanityComponentService<Mirror> mirrorService)
         {
-            _context = context;
             this._mapper = mapper;
             this._mirrorService = mirrorService;
         }
@@ -31,52 +31,29 @@ namespace VanityDashboard.Web.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Mirror>> GetMirrors()
         {
-            var results = _mirrorService.GetMirrors();
+            var results = _mirrorService.GetAll();
             if (results == null)
             {
                 return BadRequest();
             }
-            return Ok(_mapper.Map<MirrorDto[]>(results));
-        }
-
-        // GET: api/Mirrors/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<object>> GetMirror(int id)
-        {
-            var mirror = await _context.Mirrors.FindAsync(id);
-
-            var m = new
-            {
-                size = mirror.Size.ToString(),
-                price = mirror.Price,
-            };
-
-            if (mirror == null)
-            {
-                return NotFound();
-            }
-
-            return m;
+            return Ok(_mapper.Map<VanityComponentDto[]>(results));
         }
 
         // PUT: api/Mirrors/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{size}")]
-        public IActionResult PutMirror(MirrorDto mirror)
+        [HttpPut("{id}")]
+        public IActionResult PutMirror(VanityComponentDto mirror)
         {
 
-            var newMirror = _mapper.Map<Mirror>(mirror);
-            _mirrorService.UpdateMirror(newMirror);
+            var newMirror = _mirrorService.Update(_mapper.Map<Mirror>(mirror));
             
-            if (_mirrorService.CommitChanges() > 0)
+            if (_mirrorService.CommitChanges() < 1)
             {
-                return Ok();
-            } else
-            {
-                return BadRequest();
+               return BadRequest();
             }
-            
+
+            return Ok(_mapper.Map<VanityComponentDto>(newMirror));
         }
 
     

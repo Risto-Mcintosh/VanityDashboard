@@ -12,16 +12,13 @@ namespace VanityDashboard.Data
 
         public int Id { get; set; }
         public Customer Customer { get; set; }
-        [Column(TypeName = "varchar")]
-        public VanityColor Color { get; set; }
-        public Mirror Mirror { get; set; }
-        public Table Table { get; set; }
+        public Vanity Vanity { get; set; }
         [Column(TypeName = "varchar")]
         public OrderStatus OrderStatus { get; set; }
         public decimal Total { get; set; }
         public DateTime OrderedOn { get; set; }
-        public DateTime PaidOn { get; set; }
-        public DateTime DueOn { get; set; }
-        public DateTime CompletedOn { get; set; }
+        public DateTime? PaidOn { get; set; }
+        public DateTime? DueOn { get; set; }
+        public DateTime? CompletedOn { get; set; }
     }
 }

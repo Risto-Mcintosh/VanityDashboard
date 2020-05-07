@@ -1,13 +1,10 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using VanityDashboard.Data;
+using System.Text;
 
-namespace VanityDashboard.Data
+namespace VanityDashboard.Data.Dto
 {
-    public class MirrorDto
+    public class VanityComponentDto
     {
         public int Id { get; set; }
         public string Size { get; set; }

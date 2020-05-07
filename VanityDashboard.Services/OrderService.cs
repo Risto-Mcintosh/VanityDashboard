@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using VanityDashboard.Data;
+using VanityDashboard.Data.Models;
 
-namespace VanityDashboard.Servies
+namespace VanityDashboard.Services
 {
     public class OrderService : IOrderService
     {
@@ -18,30 +19,25 @@ namespace VanityDashboard.Servies
         public Order CreateOrder(Order newOrder)
         {
             newOrder.Customer = GetCustomer(newOrder);
-            newOrder.Mirror = GetMirror(newOrder);
-            newOrder.Table = GetTable(newOrder);
-            newOrder.Total = CalulateTotal(newOrder.Table.Price, newOrder.Mirror.Price);
+            newOrder.Vanity.Mirror = GetComponent<Mirror>(newOrder.Vanity.Mirror);
+            newOrder.Vanity.Table = GetComponent<Table>(newOrder.Vanity.Table);
+            newOrder.Vanity.BaseMaterial = GetComponent<BaseMaterial>(newOrder.Vanity.BaseMaterial);
+            newOrder.Total = CalulateTotal(newOrder.Vanity);
             newOrder.OrderedOn = DateTime.Now;
             newOrder.OrderStatus = OrderStatus.New;
             
             db.Orders.Add(newOrder);
-            db.SaveChanges();
             return newOrder;
         }
 
-        private static decimal CalulateTotal(decimal price1, decimal price2)
+        private static decimal CalulateTotal(Vanity vanity)
         {
-            return price1 + price2;
+            return vanity.BaseMaterial.Price + vanity.Mirror.Price + vanity.Table.Price;
         }
 
-        private Mirror GetMirror(Order newOrder)
+        private T GetComponent<T> (VanityComponent component) where T : VanityComponent
         {
-            return db.Mirrors.First(m => m.Size == newOrder.Mirror.Size);
-        }
-
-        private Table GetTable(Order newOrder)
-        {
-            return db.Tables.First(t => t.Size == newOrder.Table.Size);
+            return db.Set<T>().First(vc => vc.Size == component.Size);
         }
 
         private Customer GetCustomer(Order newOrder)
@@ -61,22 +57,30 @@ namespace VanityDashboard.Servies
             if (order != null)
             {
                 db.Orders.Remove(order);
-                db.SaveChanges();
             }
         }
 
         public Order GetOrder(int id)
         {
-            return db.Orders.Find(id);
+            return db.Orders.Where(o => o.Id == id).Include(o => o.Customer).FirstOrDefault();
         }
 
         public IEnumerable<Order> GetOrders()
         {
-            return db.Orders.Include(o => o.Mirror).Include(o => o.Table).Include(o => o.Customer);
+            return db.Orders
+                .Include(o => o.Vanity.Mirror)
+                .Include(o => o.Vanity.Table)
+                .Include(o => o.Vanity.BaseMaterial)
+                .Include(o => o.Customer);
         }
 
         public Order UpdateOrder(Order order)
         {
+            order.Customer = GetCustomer(order);
+            order.Vanity.Mirror = GetComponent<Mirror>(order.Vanity.Mirror);
+            order.Vanity.Table = GetComponent<Table>(order.Vanity.Table);
+            order.Vanity.BaseMaterial = GetComponent<BaseMaterial>(order.Vanity.BaseMaterial);
+            order.Total = CalulateTotal(order.Vanity);
             var entity = db.Orders.Attach(order);
             entity.State = EntityState.Modified;
             return order;

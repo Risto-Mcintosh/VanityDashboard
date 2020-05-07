@@ -2,7 +2,7 @@
 
 namespace VanityDashboard.Data
 {
-    public enum Sizes
+    public enum Size
     {
         Small,
         Medium,

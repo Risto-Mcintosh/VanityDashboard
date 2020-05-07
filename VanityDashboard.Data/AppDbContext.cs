@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Data
 {
@@ -19,6 +20,7 @@ namespace VanityDashboard.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Mirror> Mirrors { get; set; }
         public DbSet<Table> Tables { get; set; }
+        public DbSet<BaseMaterial> BaseMaterials { get; set; }
 
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

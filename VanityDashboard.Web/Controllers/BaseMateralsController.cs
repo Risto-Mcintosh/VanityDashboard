@@ -7,28 +7,29 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using VanityDashboard.Data;
 using VanityDashboard.Data.Dto;
+using VanityDashboard.Data.Models;
 using VanityDashboard.Services;
 
 namespace VanityDashboard.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TablesController : ControllerBase
+    public class BaseMateralsController : ControllerBase
     {
         private readonly IMapper mapper;
-        private readonly IVanityComponentService<Table> tableService;
+        private readonly IVanityComponentService<BaseMaterial> baseMaterialService;
    
 
-        public TablesController(IMapper mapper, IVanityComponentService<Table> tableService)
+        public BaseMateralsController(IMapper mapper, IVanityComponentService<BaseMaterial> baseMaterialService)
         {
             this.mapper = mapper;
-            this.tableService = tableService;
+            this.baseMaterialService = baseMaterialService;
         }
-        // GET: api/Tables
+        // GET: api/BaseMaterals
         [HttpGet]
         public ActionResult<IEnumerable<VanityComponentDto>> GetTables()
         {
-            var results = tableService.GetAll();
+            var results = baseMaterialService.GetAll();
 
             if (results == null){
                 return BadRequest();
@@ -36,14 +37,14 @@ namespace VanityDashboard.Web.Controllers
             return mapper.Map<VanityComponentDto[]>(results);
         }
 
-  
-        // PUT: api/Tables/5
+
+        // PUT: api/BaseMaterals/5
         [HttpPut("{id}")]
         public ActionResult UpdateTable(VanityComponentDto table)
         {
-            var newTable = tableService.Update(mapper.Map<Table>(table));
+            var newTable = baseMaterialService.Update(mapper.Map<BaseMaterial>(table));
 
-            if (tableService.CommitChanges() < 1)
+            if (baseMaterialService.CommitChanges() < 1)
             {
                 return BadRequest();
             }

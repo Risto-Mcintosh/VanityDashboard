@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Data
 {
@@ -14,9 +15,8 @@ namespace VanityDashboard.Data
         [Required]
         [Column(TypeName = "varchar")]
         public VanityColor Color {get; set; }
-        [Required]
         public Mirror Mirror { get; set; }
-        [Required]
         public Table Table { get; set; }
+        public BaseMaterial BaseMaterial { get; set; }
     }
 }

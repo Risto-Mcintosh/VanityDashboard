@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Data
 {
-    public class Mirror
+    public class Mirror : VanityComponent
     {
-        public int Id { get; set; }
-        [Column(TypeName = "varchar")]
-        public Sizes Size { get; set; }
-        public decimal Price { get; set; }
+        
     }
 }

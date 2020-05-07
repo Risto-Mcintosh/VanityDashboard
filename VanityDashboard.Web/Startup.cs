@@ -13,7 +13,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using VanityDashboard.Data;
-using VanityDashboard.Servies;
+using VanityDashboard.Data.Models;
+using VanityDashboard.Services;
 
 
 
@@ -42,9 +43,10 @@ namespace VanityDashboard.Web
             });
 
             services.AddScoped<IOrderService, OrderService>();
-            services.AddScoped<IMirrorService, MirrorService>();
-            services.AddScoped<ITableService, TableService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IVanityComponentService<Table>, VanityComponentService<Table>>();
+            services.AddScoped<IVanityComponentService<Mirror>, VanityComponentService<Mirror>>();
+            services.AddScoped<IVanityComponentService<BaseMaterial>, VanityComponentService<BaseMaterial>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

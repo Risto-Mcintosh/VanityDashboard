@@ -2,7 +2,7 @@
 using System;
 using VanityDashboard.Data;
 
-namespace VanityDashboard.Servies
+namespace VanityDashboard.Services
 {
     public class CustomerService : ICustomerService
     {

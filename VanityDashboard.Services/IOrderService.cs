@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VanityDashboard.Data;
 
-namespace VanityDashboard.Servies
+namespace VanityDashboard.Services
 {
     public interface IOrderService
     {
