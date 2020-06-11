@@ -16,6 +16,7 @@ namespace VanityDashboard.Data
         [Column(TypeName = "varchar")]
         public OrderStatus OrderStatus { get; set; }
         public decimal Total { get; set; }
+        public int  KanbanColumnId { get; set; }
         public DateTime OrderedOn { get; set; }
         public DateTime? PaidOn { get; set; }
         public DateTime? DueOn { get; set; }

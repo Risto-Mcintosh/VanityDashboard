@@ -21,6 +21,7 @@ namespace VanityDashboard.Data
         public DbSet<Mirror> Mirrors { get; set; }
         public DbSet<Table> Tables { get; set; }
         public DbSet<BaseMaterial> BaseMaterials { get; set; }
+        public DbSet<KanbanBoard> KanbanBoard { get; set; }
 
         /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

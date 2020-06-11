@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "67aZ13W9dHzt5gsfrSkUxvpLfMWI0wwqNEDGfwMSd2yw9Z7sxlOaB3TsTcHkJLC1TUEYFupyHgali/QZTkQzMg==",
+  "dgSpecHash": "U3YB2KkjXki4weEjPFS0qmhGHSSwfiSNbp5m9lg68FNQJMpag8kr7hheM8AR55IddqcMjFe8ejASWF6uZKHeQQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj",
   "expectedPackageFiles": [
@@ -26,7 +26,8 @@
     "C:\\Users\\risto\\.nuget\\packages\\system.collections.immutable\\1.7.0\\system.collections.immutable.1.7.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.0\\system.diagnostics.diagnosticsource.4.7.0.nupkg.sha512",
-    "C:\\Users\\risto\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+    "C:\\Users\\risto\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.6.0\\system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
+    "C:\\Users\\risto\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
   "logs": []
 }
