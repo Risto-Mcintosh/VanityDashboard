@@ -22,11 +22,7 @@ namespace VanityDashboard.Data
         public DbSet<Table> Tables { get; set; }
         public DbSet<BaseMaterial> BaseMaterials { get; set; }
         public DbSet<KanbanColumn> KanbanColumns { get; set; }
-
-        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-        }*/
+        public DbSet<KanbanColumnOrder> KanbanColumnOrder { get; set; }
 
     }
 }

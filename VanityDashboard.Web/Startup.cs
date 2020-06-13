@@ -44,6 +44,7 @@ namespace VanityDashboard.Web
 
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IKanbanBoardService, KanbanBoardService>();
             services.AddScoped<IVanityComponentService<Table>, VanityComponentService<Table>>();
             services.AddScoped<IVanityComponentService<Mirror>, VanityComponentService<Mirror>>();
             services.AddScoped<IVanityComponentService<BaseMaterial>, VanityComponentService<BaseMaterial>>();

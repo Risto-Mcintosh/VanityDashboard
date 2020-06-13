@@ -9,8 +9,9 @@ namespace VanityDashboard.Services
     {
         IEnumerable<KanbanColumn> GetKanbanColumns();
         KanbanColumn CreateKanbanColumn(string columnName);
-        void DeleteKanbanColumn(int columnId);
+        void DeleteKanbanColumn(int columnId, string[] columnOrder);
         KanbanColumn UpdateKanbanColumn(KanbanColumn newColumn);
+        public KanbanColumnOrder UpdateColumnOrder(string[] newColumnOrder);
         public int CommitChanges();
     }
 }

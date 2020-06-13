@@ -13,7 +13,6 @@ namespace VanityDashboard.Data.Models
         public string ColumnName { get; set; }
         [DefaultValue(false)]
         public Boolean ColumnLock { get; set; }
-        public int ColumnPosition { get; set; }
         [DefaultValue(false)]
         public Boolean IsCompleteColumn { get; set; }
         [DefaultValue(false)]
