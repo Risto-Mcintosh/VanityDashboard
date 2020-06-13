@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using VanityDashboard.Data;
@@ -9,9 +10,10 @@ using VanityDashboard.Data;
 namespace VanityDashboard.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200612234653_addKanbanBoardForeignKeyFix")]
+    partial class addKanbanBoardForeignKeyFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,7 +84,7 @@ namespace VanityDashboard.Data.Migrations
                     b.ToTable("BaseMaterials");
                 });
 
-            modelBuilder.Entity("VanityDashboard.Data.Models.KanbanColumn", b =>
+            modelBuilder.Entity("VanityDashboard.Data.Models.KanbanBoard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -110,7 +112,7 @@ namespace VanityDashboard.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("KanbanColumns");
+                    b.ToTable("KanbanBoard");
                 });
 
             modelBuilder.Entity("VanityDashboard.Data.Order", b =>
@@ -129,7 +131,7 @@ namespace VanityDashboard.Data.Migrations
                     b.Property<DateTime?>("DueOn")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int?>("KanbanColumnId")
+                    b.Property<int?>("KanbanBoardId")
                         .HasColumnType("integer");
 
                     b.Property<string>("OrderStatus")
@@ -152,7 +154,7 @@ namespace VanityDashboard.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("KanbanColumnId");
+                    b.HasIndex("KanbanBoardId");
 
                     b.HasIndex("VanityId");
 
@@ -215,9 +217,9 @@ namespace VanityDashboard.Data.Migrations
                         .WithMany()
                         .HasForeignKey("CustomerId");
 
-                    b.HasOne("VanityDashboard.Data.Models.KanbanColumn", "KanbanColumn")
+                    b.HasOne("VanityDashboard.Data.Models.KanbanBoard", "KanbanBoard")
                         .WithMany()
-                        .HasForeignKey("KanbanColumnId");
+                        .HasForeignKey("KanbanBoardId");
 
                     b.HasOne("VanityDashboard.Data.Vanity", "Vanity")
                         .WithMany()
