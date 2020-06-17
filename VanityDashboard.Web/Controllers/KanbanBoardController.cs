@@ -20,9 +20,9 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpGet("api/kanban-board")]
-        public void GetKanbanData()
+        public ActionResult GetKanbanData()
         {
-
+            return Ok(kanbanBoard.GetKanbanData());
         }
 
         [HttpPut("api/kanban-board")]

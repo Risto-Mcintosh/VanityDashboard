@@ -7,7 +7,7 @@ namespace VanityDashboard.Services
 {
     public interface IKanbanBoardService
     {
-        IEnumerable<KanbanColumn> GetKanbanColumns();
+        KanbanData GetKanbanData();
         KanbanColumn CreateKanbanColumn(string columnName);
         void DeleteKanbanColumn(int columnId, string[] columnOrder);
         KanbanColumn UpdateKanbanColumn(KanbanColumn newColumn);
