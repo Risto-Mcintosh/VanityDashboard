@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VanityDashboard.Data.Dto;
 using VanityDashboard.Data.Models;
 using VanityDashboard.Services;
 
@@ -13,33 +15,40 @@ namespace VanityDashboard.Web.Controllers
     public class KanbanBoardController : ControllerBase
     {
         private readonly IKanbanBoardService kanbanBoard;
+        private readonly IMapper mapper;
 
-        public KanbanBoardController(IKanbanBoardService kanbanBoard)
+        public KanbanBoardController(IKanbanBoardService kanbanBoard, IMapper mapper)
         {
             this.kanbanBoard = kanbanBoard;
+            this.mapper = mapper;
         }
 
         [HttpGet("api/kanban-board")]
         public ActionResult GetKanbanData()
         {
-            return Ok(kanbanBoard.GetKanbanData());
+            var kanbanData = kanbanBoard.GetKanbanData();
+            if (kanbanData == null)
+            {
+                return BadRequest();
+            }
+            return Ok(mapper.Map<KanbanDataDto>(kanbanData));
         }
 
         [HttpPut("api/kanban-board")]
-        public ActionResult UpdateColumnOrder(string[] columnOrder)
+        public ActionResult UpdateColumnOrder([FromBody] string[] columnOrder)
         {
             var newColumnOrder = kanbanBoard.UpdateColumnOrder(columnOrder);
             if (kanbanBoard.CommitChanges() < 1)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return Ok(newColumnOrder);
+            return Ok(newColumnOrder.Order);
         }
 
         [HttpDelete("api/kanban-board/column/{id}")]
-        public ActionResult DeleteColumn(int id, string[] columnOrder)
+        public ActionResult DeleteColumn(int id)
         {
-            kanbanBoard.DeleteKanbanColumn(id, columnOrder);
+            kanbanBoard.DeleteKanbanColumn(id);
 
             if (kanbanBoard.CommitChanges() < 1)
             {

@@ -14,10 +14,13 @@ namespace VanityDashboard.Web.Profiles
         public VanityComponentProfile()
         {
             CreateMap<Table, VanityComponentDto>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(o => "Table"))
                 .ReverseMap();
             CreateMap<Mirror, VanityComponentDto>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(o => "Mirror"))
                 .ReverseMap();
             CreateMap<BaseMaterial, VanityComponentDto>()
+                .ForMember(dest => dest.Type, opt => opt.MapFrom(o => "BaseMaterial"))
                 .ReverseMap();
         }
     }

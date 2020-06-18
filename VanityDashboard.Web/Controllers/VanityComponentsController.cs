@@ -27,22 +27,13 @@ namespace VanityDashboard.Web.Controllers
         {
             var result = new List<VanityComponentDto[]>
             {
-                AddTypeName(mapper.Map<VanityComponentDto[]>(context.Set<Mirror>().OrderBy(m => m.Size)), "mirror"),
-                AddTypeName(mapper.Map<VanityComponentDto[]>(context.Set<Table>().OrderBy(t => t.Size)), "table"),
-                AddTypeName(mapper.Map<VanityComponentDto[]>(context.Set<BaseMaterial>().OrderBy(b => b.Size)), "baseMaterial")
+                mapper.Map<VanityComponentDto[]>(context.Set<Mirror>().OrderBy(m => m.Size)),
+                mapper.Map<VanityComponentDto[]>(context.Set<Table>().OrderBy(t => t.Size)),
+                mapper.Map<VanityComponentDto[]>(context.Set<BaseMaterial>().OrderBy(b => b.Size))
             };
 
             return Ok(result.SelectMany( x => x));
         }
 
-        private static VanityComponentDto[] AddTypeName(VanityComponentDto[] compoenents, string typeName)
-        {
-            foreach (VanityComponentDto compoenent in compoenents)
-            {
-                compoenent.Type = typeName;
-            }
-
-            return compoenents;
-        }
     }
 }

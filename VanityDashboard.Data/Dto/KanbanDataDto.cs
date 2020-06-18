@@ -8,6 +8,6 @@ namespace VanityDashboard.Data.Dto
     {
         public Dictionary<int, KanbanColumnDto> Columns { get; set; }
         public Dictionary<int, KanbanOrderDto> Orders { get; set; }
-        public KanbanColumnOrderDto ColumnOrder { get; set; }
+        public string[] ColumnOrder { get; set; }
     }
 }

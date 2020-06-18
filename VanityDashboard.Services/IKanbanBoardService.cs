@@ -9,7 +9,7 @@ namespace VanityDashboard.Services
     {
         KanbanData GetKanbanData();
         KanbanColumn CreateKanbanColumn(string columnName);
-        void DeleteKanbanColumn(int columnId, string[] columnOrder);
+        void DeleteKanbanColumn(int columnId);
         KanbanColumn UpdateKanbanColumn(KanbanColumn newColumn);
         public KanbanColumnOrder UpdateColumnOrder(string[] newColumnOrder);
         public int CommitChanges();

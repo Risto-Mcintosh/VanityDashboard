@@ -25,7 +25,11 @@ namespace VanityDashboard.Services
             var columns = db.KanbanColumns;
             List<KanbanColumnDto> columnDto = new List<KanbanColumnDto>();
             var columnOrder = db.KanbanColumnOrder.Find(1);
-            var orders = db.Orders.Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday).Include(o => o.Customer).ToList();
+            var orders = db.Orders
+                .Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday)
+                .OrderByDescending(o => o.DueOn)
+                .Include(o => o.Customer)
+                .ToList();
  
             foreach (KanbanColumn column in columns)
             {
@@ -62,12 +66,14 @@ namespace VanityDashboard.Services
             return newColumn;
         }
 
-        public void DeleteKanbanColumn(int columnId, string[] columnOrder)
+        public void DeleteKanbanColumn(int columnId)
         {
 
             var column = db.KanbanColumns.Find(columnId);
-            if (column != null && (column.IsStartColumn || column.IsCompleteColumn))
+            if (column != null && (!column.IsStartColumn || !column.IsCompleteColumn))
             {
+                var columnOrder = db.KanbanColumnOrder.Find(1);
+                columnOrder.Order = columnOrder.Order.Where(o => o != columnId.ToString()).ToArray();
                 UpdateColumnOrder(columnOrder);
                 db.KanbanColumns.Remove(column);
             };
