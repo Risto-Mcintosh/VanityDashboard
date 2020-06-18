@@ -5,22 +5,12 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using VanityDashboard.Data;
+using VanityDashboard.Data.Dto;
 using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Services
 {
-    public class KanbanColumnDto: KanbanColumn
-    {
-        public List<int> OrderIds { get; set; }
-    }
-
-    public class KanbanData
-    {
-        public Dictionary<int, KanbanColumnDto> KanbanColumns { get; set; }
-        public Dictionary<int, Order> Orders { get; set; }
-        public KanbanColumnOrder ColumnOrder { get; set; }
-    }
-
+    
     public class KanbanBoardService : IKanbanBoardService
     {
         private readonly AppDbContext db;
@@ -35,21 +25,35 @@ namespace VanityDashboard.Services
             var columns = db.KanbanColumns;
             List<KanbanColumnDto> columnDto = new List<KanbanColumnDto>();
             var columnOrder = db.KanbanColumnOrder.Find(1);
-            var orders = db.Orders.Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday);
+            var orders = db.Orders.Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday).Include(o => o.Customer).ToList();
  
-            foreach (KanbanColumnDto column in columns)
+            foreach (KanbanColumn column in columns)
             {
-                column.OrderIds = orders.Where(o => o.KanbanColumn.Id == column.Id).Select(o => o.Id).ToList();
-                columnDto.Add(column);
+                var orderIds = orders.Where(o => o.KanbanColumn.Id == column.Id);
+
+
+                columnDto.Add(new KanbanColumnDto()
+                {
+                    Id = column.Id,
+                    ColumnName = column.ColumnName,
+                    Color = column.Color,
+                    ColumnLock = column.ColumnLock,
+                    IsCompleteColumn = column.IsCompleteColumn,
+                    IsStartColumn = column.IsStartColumn,
+                    OrderIds = orderIds.Select(o => o.Id).ToList(),
+                });
+
+               
             }
 
-            return new KanbanData() { ColumnOrder = columnOrder, KanbanColumns = columnDto.ToDictionary(col => col.Id), Orders = orders.ToDictionary(o => o.Id) };
+            return new KanbanData() { ColumnOrder = columnOrder, Columns = columnDto.ToDictionary(col => col.Id), Orders = orders.ToDictionary(o => o.Id) };
         }
 
         public KanbanColumn CreateKanbanColumn(string columnName)
         {
             
             var newColumn = db.KanbanColumns.Add(new KanbanColumn() { ColumnName = columnName }).Entity;
+            CommitChanges();
             var columnOrder = db.KanbanColumnOrder.Find(1);
             var columnOrderList = columnOrder.Order.ToList();
             columnOrderList.Insert(columnOrderList.Count - 1, newColumn.Id.ToString());

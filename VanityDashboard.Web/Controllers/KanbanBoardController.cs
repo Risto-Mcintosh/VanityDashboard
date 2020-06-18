@@ -61,7 +61,7 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpPost("api/kanban-board/column")]
-        public ActionResult CreateColumn(string columnName)
+        public ActionResult CreateColumn([FromBody] string columnName)
         {
             var createdColumn = kanbanBoard.CreateKanbanColumn(columnName);
             if (kanbanBoard.CommitChanges() < 1)

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace VanityDashboard.Data.Dto
 {
-    class KanbanDto
+    public class KanbanColumnOrderDto
     {
-
+        public string[] Order { get; set; }
     }
 }
