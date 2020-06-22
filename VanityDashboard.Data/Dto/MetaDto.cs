@@ -9,5 +9,7 @@ namespace VanityDashboard.Data.Dto
         public DateTime? PaidOn { get; set; }
         public DateTime? DueOn { get; set; }
         public DateTime? CompletedOn { get; set; }
+        public string KanbanColumnName { get; set; }
+        public string KanbanColumnColor { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace VanityDashboard.Web.Models
                 .ForPath(dest => dest.Meta.CompletedOn, opt => opt.MapFrom(src => src.CompletedOn == null ? null : src.CompletedOn))
                 .ForPath(dest => dest.Meta.DueOn, opt => opt.MapFrom(src => src.DueOn == null ? null : src.DueOn))
                 .ForPath(dest => dest.Meta.PaidOn, opt => opt.MapFrom(src => src.PaidOn == null ? null : src.PaidOn))
+                .ForPath(dest => dest.Meta.KanbanColumnName, opt => opt.MapFrom(src => src.KanbanColumn.ColumnName))
+                .ForPath(dest => dest.Meta.KanbanColumnColor, opt => opt.MapFrom(src => src.KanbanColumn.Color))
                 .ReverseMap();
         }
     }

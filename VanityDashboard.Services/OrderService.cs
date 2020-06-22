@@ -62,7 +62,11 @@ namespace VanityDashboard.Services
 
         public Order GetOrder(int id)
         {
-            return db.Orders.Where(o => o.Id == id).Include(o => o.Customer).FirstOrDefault();
+            return db.Orders
+                .Where(o => o.Id == id)
+                .Include(o => o.Customer)
+                .Include(o => o.KanbanColumn)
+                .FirstOrDefault();
         }
 
         public IEnumerable<Order> GetOrders()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VanityDashboard.Data.Dto;
+using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Data
 {
@@ -15,8 +16,5 @@ namespace VanityDashboard.Data
         public string OrderStatus { get; set; }
         public DateTime OrderedOn { get; set; }
         public MetaDto Meta { get; set; }
-       /* public DateTime? PaidOn { get; set; }
-        public DateTime? DueOn { get; set; }
-        public DateTime? CompletedOn { get; set; }*/
     }
 }
