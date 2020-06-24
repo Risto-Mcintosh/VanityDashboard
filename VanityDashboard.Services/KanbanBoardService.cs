@@ -29,6 +29,7 @@ namespace VanityDashboard.Services
                 .Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday)
                 .OrderByDescending(o => o.DueOn)
                 .Include(o => o.Customer)
+                .Include(o => o.KanbanColumn)
                 .ToList();
  
             foreach (KanbanColumn column in columns)
@@ -38,7 +39,7 @@ namespace VanityDashboard.Services
 
                 columnDto.Add(new KanbanColumnDto()
                 {
-                    Id = column.Id,
+                    ColumnId = column.Id.ToString(),
                     ColumnName = column.ColumnName,
                     Color = column.Color,
                     ColumnLock = column.ColumnLock,
@@ -50,7 +51,7 @@ namespace VanityDashboard.Services
                
             }
 
-            return new KanbanData() { ColumnOrder = columnOrder, Columns = columnDto.ToDictionary(col => col.Id), Orders = orders.ToDictionary(o => o.Id) };
+            return new KanbanData() { ColumnOrder = columnOrder, Columns = columnDto.ToDictionary(col => col.ColumnId), Orders = orders.ToDictionary(o => o.Id) };
         }
 
         public KanbanColumn CreateKanbanColumn(string columnName)

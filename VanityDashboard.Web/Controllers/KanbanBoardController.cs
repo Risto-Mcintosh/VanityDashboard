@@ -59,14 +59,14 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpPut("api/kanban-board/column/{id}")]
-        public ActionResult UpdateColumn(KanbanColumn newColumn)
+        public ActionResult UpdateColumn(KanbanColumnDto newColumn)
         {
-            var updatedColumn = kanbanBoard.UpdateKanbanColumn(newColumn);
+            var updatedColumn = kanbanBoard.UpdateKanbanColumn(mapper.Map<KanbanColumn>(newColumn));
             if (kanbanBoard.CommitChanges() < 1)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return Ok(updatedColumn);
+            return Ok(mapper.Map<KanbanColumnDto>(updatedColumn));
         }
 
         [HttpPost("api/kanban-board/column")]

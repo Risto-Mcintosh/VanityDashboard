@@ -7,7 +7,7 @@ namespace VanityDashboard.Data.Models
 {
     public class KanbanData
     {
-        public Dictionary<int, KanbanColumnDto> Columns { get; set; }
+        public Dictionary<string, KanbanColumnDto> Columns { get; set; }
         public Dictionary<int, Order> Orders { get; set; }
         public KanbanColumnOrder ColumnOrder { get; set; }
     }
