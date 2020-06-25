@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using VanityDashboard.Data;
 using VanityDashboard.Data.Dto;
 using VanityDashboard.Data.Models;
 using VanityDashboard.Services;
@@ -78,6 +79,17 @@ namespace VanityDashboard.Web.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
             return Ok(createdColumn);
+        }
+
+        [HttpPut("api/kanban-board/order/{id}")]
+        public ActionResult UpdateOrder(KanbanOrderDto order)
+        {
+            var updatedOrder = kanbanBoard.UpdateOrderPosition(mapper.Map<Order>(order));
+            if (kanbanBoard.CommitChanges() < 1)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+            return Ok(mapper.Map<KanbanOrderDto>(updatedOrder));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using VanityDashboard.Data;
 using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Services
@@ -11,7 +12,8 @@ namespace VanityDashboard.Services
         KanbanColumn CreateKanbanColumn(string columnName);
         void DeleteKanbanColumn(int columnId);
         KanbanColumn UpdateKanbanColumn(KanbanColumn newColumn);
-        public KanbanColumnOrder UpdateColumnOrder(string[] newColumnOrder);
-        public int CommitChanges();
+        KanbanColumnOrder UpdateColumnOrder(string[] newColumnOrder);
+        Order UpdateOrderPosition(Order updatedOrder);
+        int CommitChanges();
     }
 }

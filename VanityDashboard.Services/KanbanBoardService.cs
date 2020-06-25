@@ -106,5 +106,13 @@ namespace VanityDashboard.Services
         {
             return db.SaveChanges();
         }
+
+        public Order UpdateOrderPosition(Order updatedOrder)
+        {
+            var column = db.KanbanColumns.Find(updatedOrder.KanbanColumn.Id);
+            var entity = db.Orders.Find(updatedOrder.Id);
+            entity.KanbanColumn = column;
+            return entity;
+        }
     }
 }
