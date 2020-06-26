@@ -56,7 +56,7 @@ namespace VanityDashboard.Web.Controllers
                return StatusCode(StatusCodes.Status500InternalServerError);
             }
            
-            return Ok();
+            return Ok($"Column {id} deleted");
         }
 
         [HttpPut("api/kanban-board/column/{id}")]
@@ -78,7 +78,7 @@ namespace VanityDashboard.Web.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
-            return Ok(createdColumn);
+            return Ok(mapper.Map<KanbanColumnDto>(createdColumn));
         }
 
         [HttpPut("api/kanban-board/order/{id}")]

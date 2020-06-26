@@ -13,6 +13,6 @@ namespace VanityDashboard.Data.Dto
         public Boolean IsCompleteColumn { get; set; }
         public Boolean IsStartColumn { get; set; }
         public string Color { get; set; }
-        public List<int> OrderIds { get; set; }
+        public List<int> OrderIds { get; set; } = new List<int>();
     }
 }
