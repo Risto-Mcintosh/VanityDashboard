@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200627011701_updte-vanit-table.cs" />
+    <Compile Remove="Migrations\20200627011701_updte-vanit-table.Designer.cs" />
+    <Compile Remove="Migrations\20200627012021_update-vanityTable.cs" />
+    <Compile Remove="Migrations\20200627012021_update-vanityTable.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>

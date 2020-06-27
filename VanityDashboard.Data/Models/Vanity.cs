@@ -18,5 +18,8 @@ namespace VanityDashboard.Data
         public Mirror Mirror { get; set; }
         public Table Table { get; set; }
         public BaseMaterial BaseMaterial { get; set; }
+        public decimal MirrorPP { get; set; }
+        public decimal TablePP { get; set; }
+        public decimal BaseMaterialPP { get; set; }
     }
 }

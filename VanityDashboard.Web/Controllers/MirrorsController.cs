@@ -13,7 +13,6 @@ using VanityDashboard.Web.Models;
 
 namespace VanityDashboard.Web.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class MirrorsController : ControllerBase
     {
@@ -27,8 +26,8 @@ namespace VanityDashboard.Web.Controllers
             this._mirrorService = mirrorService;
         }
 
-        // GET: api/Mirrors
-        [HttpGet]
+      
+        [HttpGet("/api/products/mirrors")]
         public ActionResult<IEnumerable<Mirror>> GetMirrors()
         {
             var results = _mirrorService.GetAll();
@@ -39,10 +38,8 @@ namespace VanityDashboard.Web.Controllers
             return Ok(_mapper.Map<VanityComponentDto[]>(results));
         }
 
-        // PUT: api/Mirrors/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
+       
+        [HttpPut("/api/products/mirrors/{id}")]
         public IActionResult PutMirror(VanityComponentDto mirror)
         {
 

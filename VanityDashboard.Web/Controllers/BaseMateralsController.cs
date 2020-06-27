@@ -12,7 +12,7 @@ using VanityDashboard.Services;
 
 namespace VanityDashboard.Web.Controllers
 {
-    [Route("api/[controller]")]
+ 
     [ApiController]
     public class BaseMateralsController : ControllerBase
     {
@@ -26,8 +26,8 @@ namespace VanityDashboard.Web.Controllers
             this.baseMaterialService = baseMaterialService;
         }
         // GET: api/BaseMaterals
-        [HttpGet]
-        public ActionResult<IEnumerable<VanityComponentDto>> GetTables()
+        [HttpGet("/api/products/basematerals")]
+        public ActionResult<IEnumerable<VanityComponentDto>> GetBaseMaterals()
         {
             var results = baseMaterialService.GetAll();
 
@@ -39,8 +39,8 @@ namespace VanityDashboard.Web.Controllers
 
 
         // PUT: api/BaseMaterals/5
-        [HttpPut("{id}")]
-        public ActionResult UpdateTable(VanityComponentDto table)
+        [HttpPut("/api/products/basematerals/{id}")]
+        public ActionResult UpdateBaseMateral(VanityComponentDto table)
         {
             var newTable = baseMaterialService.Update(mapper.Map<BaseMaterial>(table));
 

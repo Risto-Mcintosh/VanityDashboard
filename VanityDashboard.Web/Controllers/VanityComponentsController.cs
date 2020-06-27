@@ -11,7 +11,6 @@ using VanityDashboard.Data.Models;
 
 namespace VanityDashboard.Web.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class VanityComponentsController : ControllerBase
     {
@@ -23,6 +22,8 @@ namespace VanityDashboard.Web.Controllers
             this.context = context;
             this.mapper = mapper;
         }
+
+        [HttpGet("/api/products")]
         public ActionResult<VanityComponentDto[]> Get()
         {
             var result = new List<VanityComponentDto[]>

@@ -11,7 +11,7 @@ using VanityDashboard.Services;
 
 namespace VanityDashboard.Web.Controllers
 {
-    [Route("api/[controller]")]
+
     [ApiController]
     public class TablesController : ControllerBase
     {
@@ -24,8 +24,8 @@ namespace VanityDashboard.Web.Controllers
             this.mapper = mapper;
             this.tableService = tableService;
         }
-        // GET: api/Tables
-        [HttpGet]
+      
+        [HttpGet("/api/products/tables")]
         public ActionResult<IEnumerable<VanityComponentDto>> GetTables()
         {
             var results = tableService.GetAll();
@@ -37,8 +37,8 @@ namespace VanityDashboard.Web.Controllers
         }
 
   
-        // PUT: api/Tables/5
-        [HttpPut("{id}")]
+  
+        [HttpPut("/api/products/tables/{id}")]
         public ActionResult UpdateTable(VanityComponentDto table)
         {
             var newTable = tableService.Update(mapper.Map<Table>(table));

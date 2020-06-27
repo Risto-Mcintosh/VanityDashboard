@@ -13,9 +13,9 @@ namespace VanityDashboard.Web.Models
         public OrderProfile()
         {
             CreateMap<Vanity, VanityDto>()
-                .ForPath(dest => dest.TableSize, opt => opt.MapFrom(src => src.Table.Size))
-                .ForPath(dest => dest.MirrorSize, opt => opt.MapFrom(src => src.Mirror.Size))
-                .ForPath(dest => dest.BaseSize, opt => opt.MapFrom(src => src.BaseMaterial.Size))
+                .ForPath(dest => dest.Table.Price, opt => opt.MapFrom(src => src.TablePP))
+                .ForPath(dest => dest.Mirror.Price, opt => opt.MapFrom(src => src.MirrorPP))
+                .ForPath(dest => dest.BaseMaterial.Price, opt => opt.MapFrom(src => src.BaseMaterialPP))
                 .ForPath(dest => dest.Color, opt => opt.MapFrom(src => src.Color))
                 .ReverseMap();
 

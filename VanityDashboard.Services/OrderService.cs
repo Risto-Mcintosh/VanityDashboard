@@ -18,10 +18,17 @@ namespace VanityDashboard.Services
 
         public Order CreateOrder(Order newOrder)
         {
+            var mirror = GetComponent<Mirror>(newOrder.Vanity.Mirror);
+            var table = GetComponent<Table>(newOrder.Vanity.Table);
+            var baseMaterial = GetComponent<BaseMaterial>(newOrder.Vanity.BaseMaterial);
+
             newOrder.Customer = GetCustomer(newOrder);
-            newOrder.Vanity.Mirror = GetComponent<Mirror>(newOrder.Vanity.Mirror);
-            newOrder.Vanity.Table = GetComponent<Table>(newOrder.Vanity.Table);
-            newOrder.Vanity.BaseMaterial = GetComponent<BaseMaterial>(newOrder.Vanity.BaseMaterial);
+            newOrder.Vanity.Mirror = mirror;
+            newOrder.Vanity.Table = table;
+            newOrder.Vanity.BaseMaterial = baseMaterial;
+            newOrder.Vanity.MirrorPP = mirror.Price;
+            newOrder.Vanity.TablePP = table.Price;
+            newOrder.Vanity.BaseMaterialPP = baseMaterial.Price;
             newOrder.Total = CalulateTotal(newOrder.Vanity);
             newOrder.OrderedOn = DateTime.Now;
             newOrder.OrderStatus = OrderStatus.New;
@@ -65,6 +72,7 @@ namespace VanityDashboard.Services
             return db.Orders
                 .Where(o => o.Id == id)
                 .Include(o => o.Customer)
+                .Include(o => o.Vanity)
                 .Include(o => o.KanbanColumn)
                 .FirstOrDefault();
         }
