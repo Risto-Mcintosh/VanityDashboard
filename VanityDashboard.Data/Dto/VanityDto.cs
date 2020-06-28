@@ -5,11 +5,16 @@ using VanityDashboard.Data.Dto;
 
 namespace VanityDashboard.Data
 {
+    public class CompoentDto
+    {
+        public string Size { get; set; }
+        public decimal Price { get; set; }
+    }
     public class VanityDto
     {
         public string Color { get; set; }
-        public VanityComponentDto BaseMaterial { get; set; }
-        public VanityComponentDto Mirror { get; set; }
-        public VanityComponentDto Table { get; set; }
+        public CompoentDto BaseMaterial { get; set; }
+        public CompoentDto Mirror { get; set; }
+        public CompoentDto Table { get; set; }
     }
 }

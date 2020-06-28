@@ -80,9 +80,8 @@ namespace VanityDashboard.Services
         public IEnumerable<Order> GetOrders()
         {
             return db.Orders
-                .Include(o => o.Vanity.Mirror)
-                .Include(o => o.Vanity.Table)
-                .Include(o => o.Vanity.BaseMaterial)
+                .Include(o => o.Vanity)
+                .Include(o => o.KanbanColumn)
                 .Include(o => o.Customer);
         }
 
