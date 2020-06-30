@@ -12,7 +12,7 @@ namespace VanityDashboard.Services
         Order GetOrder(int id);
         Order CreateOrder(Order newOrder);
         void DeleteOrder(int id);
-        Order UpdateOrder(Order order);
+        void UpdateOrder(Order order);
         public int CommitChanges();
     }
 }

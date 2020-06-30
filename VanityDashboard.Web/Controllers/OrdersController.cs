@@ -70,16 +70,16 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpPut("api/orders/{id}")]
-        public ActionResult<OrderDto> UpdateOrder(OrderDto updatedOrder)
+        public ActionResult<OrderDto> UpdateOrder(int id, OrderDto updatedOrder)
         {
-            var order = orderService.UpdateOrder(mapper.Map<Order>(updatedOrder));
+            orderService.UpdateOrder(mapper.Map<Order>(updatedOrder));
 
             if (orderService.CommitChanges() < 1)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
 
-            return Ok(mapper.Map<OrderDto>(order));
+            return Ok(mapper.Map<OrderDto>(orderService.GetOrder(id)));
         }
 
         [HttpDelete("api/orders/{id}")]

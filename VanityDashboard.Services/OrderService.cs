@@ -85,16 +85,23 @@ namespace VanityDashboard.Services
                 .Include(o => o.Customer);
         }
 
-        public Order UpdateOrder(Order order)
+        public void UpdateOrder(Order order)
         {
-            order.Customer = GetCustomer(order);
-            order.Vanity.Mirror = GetComponent<Mirror>(order.Vanity.Mirror);
-            order.Vanity.Table = GetComponent<Table>(order.Vanity.Table);
-            order.Vanity.BaseMaterial = GetComponent<BaseMaterial>(order.Vanity.BaseMaterial);
-            order.Total = CalulateTotal(order.Vanity);
-            var entity = db.Orders.Attach(order);
-            entity.State = EntityState.Modified;
-            return order;
+            var oldOrder = db.Orders.Where(o => o.Id == order.Id).Include(o => o.Vanity).First();
+
+            if (oldOrder.DueOn == null && order.DueOn != null)
+            {
+                var kb = new KanbanBoardService(db);
+                order.KanbanColumn.Id = 1;
+                kb.UpdateOrderPosition(order);
+            }
+
+            
+            var entity2 = db.Entry(oldOrder);
+            entity2.CurrentValues.SetValues(order);
+
+            /*var entity = db.Orders.Attach(oldOrder);
+            entity.State = EntityState.Modified;*/
         }
 
         public int CommitChanges()

@@ -20,7 +20,10 @@ namespace VanityDashboard.Web.Models
                 .ForPath(dest => dest.Mirror.Size, opt => opt.MapFrom(src => src.Mirror.Size))
                 .ForPath(dest => dest.BaseMaterial.Price, opt => opt.MapFrom(src => src.BaseMaterialPP))
                 .ForPath(dest => dest.BaseMaterial.Size, opt => opt.MapFrom(src => src.BaseMaterial.Size))
-                .ReverseMap();
+                .ReverseMap()
+                .ForPath(dest => dest.Table, x => x.Ignore())
+                .ForPath(dest => dest.Mirror, x => x.Ignore())
+                .ForPath(dest => dest.BaseMaterial, x => x.Ignore());
 
             CreateMap<Order, OrderDto>()
                 .ForPath(dest => dest.OrderedOn, opt => opt.MapFrom(src => src.OrderedOn == null ? (DateTime?)null : src.OrderedOn))
@@ -29,7 +32,11 @@ namespace VanityDashboard.Web.Models
                 .ForPath(dest => dest.Meta.PaidOn, opt => opt.MapFrom(src => src.PaidOn == null ? null : src.PaidOn))
                 .ForPath(dest => dest.Meta.BuildStatus.Name, opt => opt.MapFrom(src => src.KanbanColumn.ColumnName))
                 .ForPath(dest => dest.Meta.BuildStatus.Color, opt => opt.MapFrom(src => src.KanbanColumn.Color))
-                .ReverseMap();
+                .ReverseMap()
+                /*.ForPath(dest => dest.KanbanColumn, x => x.Ignore())*/
+                .ForPath(dest => dest.DueOn, opt => opt.MapFrom(src => src.Meta.DueOn))
+                .ForPath(dest => dest.PaidOn, opt => opt.MapFrom(src => src.Meta.PaidOn))
+                .ForPath(dest => dest.CompletedOn, opt => opt.MapFrom(src => src.Meta.CompletedOn));
         }
     }
 }
