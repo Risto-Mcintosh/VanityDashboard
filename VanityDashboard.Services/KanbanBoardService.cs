@@ -26,7 +26,7 @@ namespace VanityDashboard.Services
             List<KanbanColumnDto> columnDto = new List<KanbanColumnDto>();
             var columnOrder = db.KanbanColumnOrder.Find(1);
             var orders = db.Orders
-                .Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn <= fromToday)
+                .Where(o => o.OrderStatus == OrderStatus.Pending || o.CompletedOn >= fromToday)
                 .OrderByDescending(o => o.DueOn)
                 .Include(o => o.Customer)
                 .Include(o => o.KanbanColumn)
@@ -107,11 +107,17 @@ namespace VanityDashboard.Services
             return db.SaveChanges();
         }
 
-        public Order UpdateOrderPosition(Order updatedOrder)
+        public Order UpdateOrderPosition(Order updatedOrder, bool markComplete = false )
         {
             var column = db.KanbanColumns.Find(updatedOrder.KanbanColumn.Id);
             var entity = db.Orders.Find(updatedOrder.Id);
             entity.KanbanColumn = column;
+            if (markComplete)
+            {
+                entity.CompletedOn = DateTime.Now;
+                entity.OrderStatus = OrderStatus.Complete;
+            }
+            
             return entity;
         }
     }

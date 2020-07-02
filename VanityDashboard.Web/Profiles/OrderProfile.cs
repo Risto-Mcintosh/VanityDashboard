@@ -33,7 +33,7 @@ namespace VanityDashboard.Web.Models
                 .ForPath(dest => dest.Meta.BuildStatus.Name, opt => opt.MapFrom(src => src.KanbanColumn.ColumnName))
                 .ForPath(dest => dest.Meta.BuildStatus.Color, opt => opt.MapFrom(src => src.KanbanColumn.Color))
                 .ReverseMap()
-                /*.ForPath(dest => dest.KanbanColumn, x => x.Ignore())*/
+                .ForPath(dest => dest.KanbanColumn, x => x.Ignore())
                 .ForPath(dest => dest.DueOn, opt => opt.MapFrom(src => src.Meta.DueOn))
                 .ForPath(dest => dest.PaidOn, opt => opt.MapFrom(src => src.Meta.PaidOn))
                 .ForPath(dest => dest.CompletedOn, opt => opt.MapFrom(src => src.Meta.CompletedOn));

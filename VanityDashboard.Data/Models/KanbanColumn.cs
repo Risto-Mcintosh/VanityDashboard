@@ -9,7 +9,6 @@ namespace VanityDashboard.Data.Models
     public class KanbanColumn
     {
         public int Id { get; set; }
-        [Required]
         public string ColumnName { get; set; }
         [DefaultValue(false)]
         public Boolean ColumnLock { get; set; }

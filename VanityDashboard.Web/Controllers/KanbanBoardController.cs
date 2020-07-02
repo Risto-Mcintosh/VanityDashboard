@@ -82,9 +82,18 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpPut("api/kanban-board/order/{id}")]
-        public ActionResult UpdateOrder(KanbanOrderDto order)
+        public ActionResult UpdateOrder([FromQuery(Name = "action")] string updatePosition, KanbanOrderDto order)
         {
-            var updatedOrder = kanbanBoard.UpdateOrderPosition(mapper.Map<Order>(order));
+            Order updatedOrder;
+            if ( updatePosition == "position")
+            {
+                updatedOrder = kanbanBoard.UpdateOrderPosition(mapper.Map<Order>(order));
+            } else
+            {
+                updatedOrder = kanbanBoard.UpdateOrderPosition(mapper.Map<Order>(order), true);
+            }
+
+            
             if (kanbanBoard.CommitChanges() < 1)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);

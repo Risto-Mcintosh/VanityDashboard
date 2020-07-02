@@ -32,6 +32,7 @@ namespace VanityDashboard.Services
             newOrder.Total = CalulateTotal(newOrder.Vanity);
             newOrder.OrderedOn = DateTime.Now;
             newOrder.OrderStatus = OrderStatus.New;
+            newOrder.KanbanColumn = db.KanbanColumns.Find(1);
             
             db.Orders.Add(newOrder);
             return newOrder;
@@ -87,16 +88,7 @@ namespace VanityDashboard.Services
 
         public void UpdateOrder(Order order)
         {
-            var oldOrder = db.Orders.Where(o => o.Id == order.Id).Include(o => o.Vanity).First();
-
-            if (oldOrder.DueOn == null && order.DueOn != null)
-            {
-                var kb = new KanbanBoardService(db);
-                order.KanbanColumn.Id = 1;
-                kb.UpdateOrderPosition(order);
-            }
-
-            
+            var oldOrder = db.Orders.Find(order.Id);
             var entity2 = db.Entry(oldOrder);
             entity2.CurrentValues.SetValues(order);
 

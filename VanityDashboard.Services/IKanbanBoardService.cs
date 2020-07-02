@@ -13,7 +13,7 @@ namespace VanityDashboard.Services
         void DeleteKanbanColumn(int columnId);
         KanbanColumn UpdateKanbanColumn(KanbanColumn newColumn);
         KanbanColumnOrder UpdateColumnOrder(string[] newColumnOrder);
-        Order UpdateOrderPosition(Order updatedOrder);
+        Order UpdateOrderPosition(Order updatedOrder, bool markComplete = false);
         int CommitChanges();
     }
 }

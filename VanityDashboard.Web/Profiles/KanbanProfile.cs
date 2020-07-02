@@ -15,8 +15,9 @@ namespace VanityDashboard.Web.Profiles
         {
             CreateMap<Order, KanbanOrderDto>()
                 .ForPath(dest => dest.OrderId, opt => opt.MapFrom(src => src.Id))
-                .ForPath(dest => dest.customerName, opt => opt.MapFrom(src => src.Customer.Name))
-                .ForPath(dest => dest.kanbanColumnId, opt => opt.MapFrom(src => src.KanbanColumn.Id))
+                .ForPath(dest => dest.CustomerName, opt => opt.MapFrom(src => src.Customer.Name))
+                .ForPath(dest => dest.KanbanColumnId, opt => opt.MapFrom(src => src.KanbanColumn.Id))
+                .ForPath(dest => dest.OrderStatus, opt => opt.MapFrom(src => src.OrderStatus))
                 .ReverseMap();
 
             CreateMap<KanbanColumn, KanbanColumnDto>()
