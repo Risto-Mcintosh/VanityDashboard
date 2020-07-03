@@ -78,7 +78,7 @@ namespace VanityDashboard.Services
                 .FirstOrDefault();
         }
 
-        public IEnumerable<Order> GetOrders()
+        public IQueryable<Order> GetOrders()
         {
             return db.Orders
                 .Include(o => o.Vanity)

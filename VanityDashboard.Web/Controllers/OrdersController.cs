@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using VanityDashboard.Data;
 using VanityDashboard.Services;
 using VanityDashboard.Web.Models;
+using VanityDashboard.Web.QueryParams;
 
 namespace VanityDashboard.Web.Controllers
 {
@@ -30,9 +31,12 @@ namespace VanityDashboard.Web.Controllers
         }
 
         [HttpGet("api/orders")]
-        public ActionResult<OrderDto> GetOrders()
+        public ActionResult<OrderDto> GetOrders([FromQuery] OrderQueryStrings query)
         {
-            var orders = orderService.GetOrders();
+            
+            var orders = orderService.GetOrders().Take(query.Limit);
+
+            
             if (orders == null)
             {
                 return BadRequest();

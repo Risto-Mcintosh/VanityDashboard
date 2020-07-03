@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LRiUpTk357T4sFcSFT4umPSnx8Y8kHyyD0K92zU9g3Ek+T2WPWg+lfCKA/zFGHSTcrtLnor1kilZTbKzLe3NWg==",
+  "dgSpecHash": "QVC67W5MWNBE+Ga8y3DXZRpI22llYKzHpIyA5YHf8ET0Ynm+saA84QCRmu3r0GJ2LGL1/zLNJM3OPUDs0QZLJw==",
   "success": true,
   "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Web\\VanityDashboard.Web.csproj",
   "expectedPackageFiles": [
@@ -173,8 +173,7 @@
     "C:\\Users\\risto\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\risto\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\risto\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\risto\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

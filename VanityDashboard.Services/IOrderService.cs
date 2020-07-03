@@ -8,7 +8,7 @@ namespace VanityDashboard.Services
 {
     public interface IOrderService
     {
-        IEnumerable<Order> GetOrders();
+        IQueryable<Order> GetOrders();
         Order GetOrder(int id);
         Order CreateOrder(Order newOrder);
         void DeleteOrder(int id);
