@@ -34,7 +34,23 @@ namespace VanityDashboard.Web.Controllers
         public ActionResult<OrderDto> GetOrders([FromQuery] OrderQueryStrings query)
         {
             
-            var orders = orderService.GetOrders().Take(query.Limit);
+            var orders = orderService.GetOrders();
+            if(query.Limit != 0) 
+            {
+                orders = orders.Take(query.Limit);
+            } else
+            {
+                orders = orders.Take(30);
+            }
+          
+            if (query.ThisWeek)
+            {
+                var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
+                var sunday = monday.AddDays(6);
+                orders = orders.Where(o => o.DueOn <= sunday || o.DueOn >= monday);
+            }
+
+            orders = orders.OrderByDescending(o => o.OrderedOn);
 
             
             if (orders == null)
