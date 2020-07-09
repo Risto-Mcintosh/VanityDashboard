@@ -9,10 +9,12 @@ namespace VanityDashboard.Web.QueryParams
     public class OrderQueryStrings
     {
         [FromQuery(Name = "limit")]
-        public int Limit { get; set; }
-        [FromQuery(Name = "thisweek")]
+        public int? Limit { get; set; }
+        [FromQuery(Name = "thisWeek")]
         public Boolean ThisWeek { get; set; } = false;
-        [FromQuery(Name = "orderby")]
+        [FromQuery(Name = "orderBy")]
         public string OrderBy { get; set; }
+        [FromQuery(Name = "pageNumber")]
+        public int? PageNumber { get; set; }
     }
 }

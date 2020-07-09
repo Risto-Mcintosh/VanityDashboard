@@ -40,7 +40,8 @@ namespace VanityDashboard.Web
                     {
                         builder.WithOrigins("http://localhost:3000")
                         .AllowAnyHeader()
-                        .AllowAnyMethod();
+                        .AllowAnyMethod()
+                        .WithExposedHeaders("X-Pagination");
                     });
             });
             services.AddAutoMapper(typeof(Startup));

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using VanityDashboard.Data;
 using VanityDashboard.Services;
 using VanityDashboard.Web.Models;
@@ -35,13 +36,13 @@ namespace VanityDashboard.Web.Controllers
         {
             
             var orders = orderService.GetOrders();
-            if(query.Limit != 0) 
+            /*if(query.Limit.HasValue) 
             {
-                orders = orders.Take(query.Limit);
+                orders = orders.Take(query.Limit.Value);
             } else
             {
                 orders = orders.Take(30);
-            }
+            }*/
           
             if (query.ThisWeek)
             {
@@ -52,12 +53,25 @@ namespace VanityDashboard.Web.Controllers
 
             orders = orders.OrderByDescending(o => o.OrderedOn);
 
+            var paginatedList = PaginatedList<Order>.ToPagedList(orders, query.PageNumber ?? 1, query.Limit ?? 30);
+            var pageMetaData = new
+            {
+                paginatedList.Count,
+                paginatedList.HasNext,
+                paginatedList.HasPrevious,
+                paginatedList.TotalCount,
+                paginatedList.TotalPages,
+                paginatedList.CurrentPage,
+            };
             
             if (orders == null)
             {
                 return BadRequest();
             }
-            return Ok(mapper.Map<OrderDto[]>(orders));
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(pageMetaData));
+
+            return Ok(mapper.Map<OrderDto[]>(paginatedList));
         }
 
         [HttpGet("api/orders/{id}")]
