@@ -16,5 +16,7 @@ namespace VanityDashboard.Web.QueryParams
         public string OrderBy { get; set; }
         [FromQuery(Name = "pageNumber")]
         public int? PageNumber { get; set; }
+        [FromQuery(Name = "searchString")]
+        public string SearchString { get; set; }
     }
 }
