@@ -36,16 +36,41 @@ namespace VanityDashboard.Web.Controllers
         {
             
             var orders = orderService.GetOrders();
+
+            if (!String.IsNullOrEmpty(query.ListType))
+            {
+                switch (query.ListType)
+                {
+                    case "overdue":
+                        orders = orders.Where(o => o.OrderStatus == OrderStatus.Pending && o.DueOn > DateTime.Today);
+                        break;
+                    case "pending":
+                        orders = orders.Where(o => o.OrderStatus == OrderStatus.Pending);
+                        break;
+                    case "new":
+                        orders = orders.Where(o => o.OrderStatus == OrderStatus.New);
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+
+
             if (query.ThisWeek)
             {
                 var monday = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek + (int)DayOfWeek.Monday);
                 var sunday = monday.AddDays(6);
                 orders = orders.Where(o => o.DueOn <= sunday || o.DueOn >= monday);
             }
+
+
             if (!String.IsNullOrEmpty(query.SearchString))
             {
                 orders = orders.Where(o => o.Customer.Name.ToLower().Contains(query.SearchString.ToLower()));
             }
+
+
             orders = orders.OrderByDescending(o => o.OrderedOn);
 
             var paginatedList = PaginatedList<Order>.ToPagedList(orders, query.PageNumber ?? 1, query.Limit ?? 30);

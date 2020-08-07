@@ -18,5 +18,7 @@ namespace VanityDashboard.Web.QueryParams
         public int? PageNumber { get; set; }
         [FromQuery(Name = "searchString")]
         public string SearchString { get; set; }
+        [FromQuery(Name = "listType")]
+        public string ListType { get; set; }
     }
 }
