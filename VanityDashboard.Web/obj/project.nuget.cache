@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QVC67W5MWNBE+Ga8y3DXZRpI22llYKzHpIyA5YHf8ET0Ynm+saA84QCRmu3r0GJ2LGL1/zLNJM3OPUDs0QZLJw==",
+  "dgSpecHash": "XRvU8o6pDLRaKxNVkTroGMpn+GE0K2HaK9jc9SMbwBlxredoUNSjhG/jHhFDrTozlRPUipg9byNpCItnykcnug==",
   "success": true,
-  "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Web\\VanityDashboard.Web.csproj",
+  "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Web\\VanityDashboard.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\risto\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LNCr91w6mDpbM5w9Bil6feFIgfrTCIkcpgvvwGGWxZl94BeAAtln+qEfez/CtriA0EPnIQ3qLgAHK/pVJv9+9A==",
+  "dgSpecHash": "BHfIMmtes5aQroFOJkbxdUpaIveEqNCOSpJOtlW1HldqeahJEdUZHkv5r8G113ns1cGNnFt4hvhhxm/NUaKFsg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
+  "projectFilePath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\risto\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\risto\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

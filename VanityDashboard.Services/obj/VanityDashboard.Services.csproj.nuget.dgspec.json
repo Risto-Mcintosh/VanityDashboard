@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj": {}
+    "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj": {}
   },
   "projects": {
-    "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
+    "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
+        "projectUniqueName": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
         "projectName": "VanityDashboard.Data",
-        "projectPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
+        "projectPath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj",
         "packagesPath": "C:\\Users\\risto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\obj\\",
+        "outputPath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\risto\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj": {
+    "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj",
+        "projectUniqueName": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj",
         "projectName": "VanityDashboard.Services",
-        "projectPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj",
+        "projectPath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Services\\VanityDashboard.Services.csproj",
         "packagesPath": "C:\\Users\\risto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Services\\obj\\",
+        "outputPath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\risto\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -95,8 +95,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
-                "projectPath": "C:\\Users\\risto\\Sites\\Personal\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj"
+              "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj": {
+                "projectPath": "C:\\Users\\risto\\Sites\\Personal\\vanity\\VanityDashboard\\VanityDashboard.Data\\VanityDashboard.Data.csproj"
               }
             }
           }

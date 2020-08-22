@@ -10,3 +10,15 @@ C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.csproj.CopyComplete
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.dll
 C:\Users\risto\Sites\Personal\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.pdb
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\bin\Debug\netcoreapp3.1\VanityDashboard.Services.deps.json
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\bin\Debug\netcoreapp3.1\VanityDashboard.Services.dll
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\bin\Debug\netcoreapp3.1\VanityDashboard.Services.pdb
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\bin\Debug\netcoreapp3.1\VanityDashboard.Data.dll
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\bin\Debug\netcoreapp3.1\VanityDashboard.Data.pdb
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.csprojAssemblyReference.cache
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.AssemblyInfoInputs.cache
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.AssemblyInfo.cs
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.csproj.CoreCompileInputs.cache
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.csproj.CopyComplete
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.dll
+C:\Users\risto\Sites\Personal\vanity\VanityDashboard\VanityDashboard.Services\obj\Debug\netcoreapp3.1\VanityDashboard.Services.pdb
